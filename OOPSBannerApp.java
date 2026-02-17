@@ -1,27 +1,22 @@
 /**
- * UC3: Print OOPS Banner using String.join()
- * Displays "OOPS" using ASCII art stars.
- * Refactored for better readability and memory efficiency.
- * 
+ * UC4: Print OOPS Banner using Arrays and Loops
+ * Organizes banner data into a String array for modularity.
  * @author Sourin
- * @version 3.0
+ * @version 4.0
  */
 public class OOPSBannerApp {
-
     public static void main(String[] args) {
-        System.out.println(String.join("", 
-                "  ***** ", "  ***** ", " ******** ", "  ******* "));
-        System.out.println(String.join("", 
-                " **   ** ", " **   ** ", " **     ** ", " **     **"));
-        System.out.println(String.join("", 
-                " **   ** ", " **   ** ", " **     ** ", " **"));
-        System.out.println(String.join("", 
-                " **   ** ", " **   ** ", " ******** ", "  ******* "));
-        System.out.println(String.join("", 
-                " **   ** ", " **   ** ", " **        ", " **     **"));
-        System.out.println(String.join("", 
-                " **   ** ", " **   ** ", " **        ", " **     **"));
-        System.out.println(String.join("", 
-                "  ***** ", "  ***** ", " **        ", "  ******* "));
+        String[] banner = {
+    String.join("  ", "  *****  ", "  *****  ", " ******** ", "  ******* "),
+    String.join("  ", " **   ** ", " **   ** ", " **       ", " **       "),
+    String.join("  ", " **   ** ", " **   ** ", " **       ", " **       "),
+    String.join("  ", " **   ** ", " **   ** ", " ******** ", "  ******* "),
+    String.join("  ", " **   ** ", " **   ** ", " **              **"),
+    String.join("  ", " **   ** ", " **   ** ", " **        ", "       ** "),
+    String.join("  ", "  *****  ", "  *****  ", " ******** ", "  ******* ")
+};
+        for (String line : banner) {
+            System.out.println(line);
+        }
     }
 }
