@@ -1,6 +1,6 @@
 /**
  * UC1: Print OOPS to Console
- * @author YourName
+ * @author Sourin
  * @version 1.0
  */
 public class OOPSBannerApp {
