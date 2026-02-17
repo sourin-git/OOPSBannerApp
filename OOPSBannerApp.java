@@ -1,12 +1,28 @@
 /**
- * UC2: Print OOPS Banner to Console
+ * UC3: Print OOPS Banner using String.join()
  * Displays "OOPS" using ASCII art stars.
+ * Refactored for better readability and memory efficiency.
+ * 
  * @author Sourin
- * @version 2.0
+ * @version 3.0
  */
 public class OOPSBannerApp {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        System.out.println(String.join("", 
+                "  ***** ", "  ***** ", " ******** ", "  ******* "));
+        System.out.println(String.join("", 
+                " **   ** ", " **   ** ", " **     ** ", " **     **"));
+        System.out.println(String.join("", 
+                " **   ** ", " **   ** ", " **     ** ", " **"));
+        System.out.println(String.join("", 
+                " **   ** ", " **   ** ", " ******** ", "  ******* "));
+        System.out.println(String.join("", 
+                " **   ** ", " **   ** ", " **        ", " **     **"));
+        System.out.println(String.join("", 
+                " **   ** ", " **   ** ", " **        ", " **     **"));
+        System.out.println(String.join("", 
+                "  ***** ", "  ***** ", " **        ", "  ******* "));
         System.out.println("  *****     *****   ********   ******* ");
         System.out.println(" **   **   **   **  **     **  **     **");
         System.out.println(" **   **   **   **  **     **  **");
