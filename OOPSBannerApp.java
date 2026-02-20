@@ -6,7 +6,6 @@
  */
 public class OOPSBannerApp {
 
-    // Inner Class to handle character patterns
     static class CharacterPattern {
         private char character;
 
@@ -14,7 +13,6 @@ public class OOPSBannerApp {
             this.character = Character.toUpperCase(character);
         }
 
-        // Each pattern is exactly 9 characters wide
         public String getLine(int line) {
             switch (character) {
                 case 'O':
@@ -61,6 +59,44 @@ public class OOPSBannerApp {
 
         for (String line : banner) {
             System.out.println(line);
+        }
+    }
+
+
+    public static String getO(int line) {
+        switch (line) {
+            case 1:
+            case 7:
+                return "  *****  ";
+            default:
+                return " **   ** ";
+        }
+    }
+
+    public static String getP(int line) {
+        switch (line) {
+            case 1:
+            case 4:
+                return " ********";
+            case 2:
+            case 3:
+                return " **   ** ";
+            default:
+                return " **      ";
+        }
+    }
+
+    public static String getS(int line) {
+        switch (line) {
+            case 1:
+            case 4:
+            case 7:
+                return " ********";
+            case 2:
+            case 3:
+                return " **      ";
+            default:
+                return "      ** ";
         }
     }
 }
