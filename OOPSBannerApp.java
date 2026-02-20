@@ -1,20 +1,22 @@
 /**
- * UC4: Print OOPS Banner using Arrays and Loops
- * Organizes banner data into a String array for modularity.
+ * UC5: Print OOPS Banner with Inline Array Initialization
+ * Combines declaration and population for more concise code.
  * @author Sourin
- * @version 4.0
+ * @version 5.0
  */
 public class OOPSBannerApp {
     public static void main(String[] args) {
+
         String[] banner = {
-    String.join("  ", "  *****  ", "  *****  ", " ******** ", "  ******* "),
-    String.join("  ", " **   ** ", " **   ** ", " **       ", " **       "),
-    String.join("  ", " **   ** ", " **   ** ", " **       ", " **       "),
-    String.join("  ", " **   ** ", " **   ** ", " ******** ", "  ******* "),
-    String.join("  ", " **   ** ", " **   ** ", " **              **"),
-    String.join("  ", " **   ** ", " **   ** ", " **        ", "       ** "),
-    String.join("  ", "  *****  ", "  *****  ", " ******** ", "  ******* ")
-};
+            "  *****    *****    ********   ******** ",
+            " **   **  **   **   **         **        ",
+            " **   **  **   **   **         **        ",
+            " **   **  **   **   ********   ******** ",
+            " **   **  **   **        **         **  ",
+            " **   **  **   **        **         **  ",
+            "  *****    *****    ********   ******** "
+        };
+
         for (String line : banner) {
             System.out.println(line);
         }
