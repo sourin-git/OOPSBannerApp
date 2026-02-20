@@ -1,22 +1,61 @@
 /**
- * UC6: Print OOPS Banner with Static Methods
- * Encapsulates letter patterns into reusable methods for better modularity.
+ * UC7: Print OOPS Banner using a dedicated Pattern Class
+ * Encapsulates character-to-pattern mapping for high scalability.
  * @author Sourin
- * @version 6.0
+ * @version 7.0
  */
 public class OOPSBannerApp {
 
+    static class CharacterPattern {
+        private char character;
+
+        public CharacterPattern(char character) {
+            this.character = Character.toUpperCase(character);
+        }
+
+        public String getLine(int line) {
+            switch (character) {
+                case 'O':
+                    return (line == 1 || line == 7)
+                            ? "  *****  "
+                            : " **   ** ";
+
+                case 'P':
+                    if (line == 1 || line == 4)
+                        return " ********";
+                    if (line == 2 || line == 3)
+                        return " **   ** ";
+                    return " **      ";
+
+                case 'S':
+                    if (line == 1 || line == 4 || line == 7)
+                        return " ********";
+                    if (line == 2 || line == 3)
+                        return " **      ";
+                    return "      ** ";
+
+                default:
+                    return "         ";
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
-        String[] banner = {
-            getO(1) + getO(1) + getP(1) + getS(1),
-            getO(2) + getO(2) + getP(2) + getS(2),
-            getO(3) + getO(3) + getP(3) + getS(3),
-            getO(4) + getO(4) + getP(4) + getS(4),
-            getO(5) + getO(5) + getP(5) + getS(5),
-            getO(6) + getO(6) + getP(6) + getS(6),
-            getO(7) + getO(7) + getP(7) + getS(7)
-        };
+        CharacterPattern o = new CharacterPattern('O');
+        CharacterPattern p = new CharacterPattern('P');
+        CharacterPattern s = new CharacterPattern('S');
+
+        String[] banner = new String[7];
+
+        for (int i = 0; i < 7; i++) {
+            int line = i + 1;
+            banner[i] =
+                    o.getLine(line) +
+                    o.getLine(line) +
+                    p.getLine(line) +
+                    s.getLine(line);
+        }
 
         for (String line : banner) {
             System.out.println(line);
