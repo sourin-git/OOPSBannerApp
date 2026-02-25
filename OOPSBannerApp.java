@@ -1,102 +1,62 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- * UC7: Print OOPS Banner using a dedicated Pattern Class
- * Encapsulates character-to-pattern mapping for high scalability.
+ * UC8: Final OOPS Banner App
+ * Uses HashMap for O(1) retrieval and a dynamic rendering function.
  * @author Sourin
- * @version 7.0
+ * @version 8.0
  */
 public class OOPSBannerApp {
+    private static final Map<Character, String[]> PATTERN_MAP = new HashMap<>();
 
-    static class CharacterPattern {
-        private char character;
-
-        public CharacterPattern(char character) {
-            this.character = Character.toUpperCase(character);
-        }
-
-        public String getLine(int line) {
-            switch (character) {
-                case 'O':
-                    return (line == 1 || line == 7)
-                            ? "  *****  "
-                            : " **   ** ";
-
-                case 'P':
-                    if (line == 1 || line == 4)
-                        return " ********";
-                    if (line == 2 || line == 3)
-                        return " **   ** ";
-                    return " **      ";
-
-                case 'S':
-                    if (line == 1 || line == 4 || line == 7)
-                        return " ********";
-                    if (line == 2 || line == 3)
-                        return " **      ";
-                    return "      ** ";
-
-                default:
-                    return "         ";
-            }
-        }
+    static {
+        PATTERN_MAP.put('O', new String[]{
+            " *******  ",
+            " **   **  ",
+            " **   **  ",
+            " **   **  ",
+            " **   **  ",
+            " **   **  ",
+            " *******  "
+        });
+        PATTERN_MAP.put('P', new String[]{
+            " ******** ",
+            " **   **  ",
+            " **   **  ",
+            " ******** ",
+            " **       ",
+            " **       ",
+            " **       "
+        });
+        PATTERN_MAP.put('S', new String[]{
+            " *******  ",
+            " **       ",
+            " **       ",
+            " *******  ",
+            "       ** ",
+            "       ** ",
+            " *******  "
+        });
     }
 
     public static void main(String[] args) {
+        renderBanner("OOPS");
+    }
 
-        CharacterPattern o = new CharacterPattern('O');
-        CharacterPattern p = new CharacterPattern('P');
-        CharacterPattern s = new CharacterPattern('S');
-
-        String[] banner = new String[7];
-
+    public static void renderBanner(String word) {
+        word = word.toUpperCase();
         for (int i = 0; i < 7; i++) {
-            int line = i + 1;
-            banner[i] =
-                    o.getLine(line) +
-                    o.getLine(line) +
-                    p.getLine(line) +
-                    s.getLine(line);
-        }
+            StringBuilder lineResult = new StringBuilder();
 
-        for (String line : banner) {
-            System.out.println(line);
-        }
-    }
-
-
-    public static String getO(int line) {
-        switch (line) {
-            case 1:
-            case 7:
-                return "  *****  ";
-            default:
-                return " **   ** ";
-        }
-    }
-
-    public static String getP(int line) {
-        switch (line) {
-            case 1:
-            case 4:
-                return " ********";
-            case 2:
-            case 3:
-                return " **   ** ";
-            default:
-                return " **      ";
-        }
-    }
-
-    public static String getS(int line) {
-        switch (line) {
-            case 1:
-            case 4:
-            case 7:
-                return " ********";
-            case 2:
-            case 3:
-                return " **      ";
-            default:
-                return "      ** ";
+            for (char c : word.toCharArray()) {
+                if (PATTERN_MAP.containsKey(c)) {
+                    lineResult.append(PATTERN_MAP.get(c)[i]);
+                } else {
+                    lineResult.append("          ");
+                }
+            }
+            System.out.println(lineResult.toString());
         }
     }
 }
